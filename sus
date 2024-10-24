@@ -1,0 +1,162 @@
+if game.PlaceId == 15501940982 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Player = game.Players.LocalPlayer
+
+local Window = OrionLib:MakeWindow({Name = "Key System | Sunset Hub", HidePremium = false, SaveConfig = true, IntroEnabled = false })
+
+local Window = OrionLib:MakeWindow({Name = "Sunset Hub | Pet Go!", HidePremium = false, Intro = false , IntroText = "Sunset Hub" , SaveConfig = true, ConfigFolder = "OrionTest"})
+
+OrionLib:MakeNotification({
+	Name = "Sunset Hub",
+	Content = "You executed the script. Thanks for using! You are logged in as "..Player.Name.." ",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+_G.Key = "DDD7B6E5c1e7C3DaCf62Af90"
+_G.KeyInput = "string"
+
+function = MakeSunsetHub()
+    local Window = OrionLib:MakeWindow({Name = "Sunset Hub | Pet Go!", HidePremium = false, Intro = false , SaveConfig = true, IntroEnabled = true, IntroText = Sunset Hub | Pet GO! })
+end
+
+function CorrectKeyNotification()
+     OrionLib:MakeNotification({
+	Name = "Whitelisted Key!",
+	Content = "Your Key Is Whitelisted. Enjoy The Script!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+     })
+end
+
+function IncorrectKeyNotification()
+     OrionLib:MakeNotification({
+	Name = "Wrong Key!",
+	Content = "Your Key Is Wrong. Enter Another Key!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+      })
+end
+
+local Tab = Window:MakeTab({
+	Name = "Enter The Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "Enter your Key",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+                print(KeyInput)
+	end	  
+})
+
+Tab:AddButton({
+	Name = "Check Key",
+	Callback = function()
+      		if _G.KeyInput = _G.Key then
+                MakeSunsetHub()
+                CorrectKeyNotification()
+                else 
+                    IncorrcectKeyNotification()
+            end
+  	end    
+})
+
+
+--Values
+_G.autorolls = true
+_G.autohatchs = true
+_G.selectEggs = "Spotted Egg"
+_G.selectEggs = "Cat Egg"
+_G.selectEggs = "Paw Print Egg"
+_G.selectEggs = "Wooden Egg"
+_G.selectEggs = "Honeyhive Egg"
+_G.selectEggs = "Flowery Fields Egg"
+_G.selectEggs = "Dog Egg"
+_G.selectEggs = "Mushroom Egg"
+_G.autoupgrades = true
+_G.equipbest = true
+
+
+
+--Functions
+
+function autorolls()
+    while _G.autorolls == true do
+         game:GetService("ReplicatedStorage").Remotes.Rolls:FireServer()
+         wait(.0000000000000000000000000000000000000000000000000000000000000000001)
+    end
+    end
+
+
+function autohatchs()
+    while _G.autohatchs == true do
+          game:GetService('ReplicatedStorage").Remotes.BuyEggs:InvokeServer(_G.selectEggs,1)
+          wait(.0000000000000000000000000000000000000000000000000000000000000000001)
+    end
+    end
+
+function equipbest()
+   while _G.equipbest == true do
+        game:GetService('ReplicatedStorage").Remotes.UnequipAll:InvokeServer()
+        game:GetService('ReplicatedStorage").Remotes.EquipBest:InvokeServer()
+    end
+    end
+ 
+--Tabs
+local FareTab = Window:MakeTab({
+	Name = "Auto Farm!",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local UpgradeTab = Window:MakeTab({
+	Name = "Auto Upgrade And Buy And EquipBest!",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+ --Toggles
+FareTab:AddToggle({
+	Name = "Auto Rolls",
+	Default = false,
+	Callback = function(Value)
+		_G.autorolls == Value
+     autorolls()
+	end    
+})
+
+FareTab:AddToggle({
+	Name = "Auto Hatch!",
+	Default = false,
+	Callback = function(Value)
+		_G.autohatchs == Value
+     autohatchs()
+	end    
+})
+
+UpgradeTab:AddButton({
+	Name = "Auto EquipBest!",
+	Default = false,
+	Callback = function(Value)
+		_G.autoequipbest = Value
+     autoequipbest()
+	end    
+})
+
+--Dropdowns
+UpgradeTab:AddDropdown({
+	Name = "Select Eggs!",
+	Default = "Spotted Egg",
+	Options = {"Spotted Egg", "Cat Egg" , "Paw Printed Egg" , "Wooden Egg" , "Honeyhive Egg" , "Flowery Fields Egg" , "Dog Egg" , "Mushroom Egg" },
+	Callback = function(Value)
+                _G.selectEggs == Value
+               print(_G.selectEggs)
+	end    
+})
