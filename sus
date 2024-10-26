@@ -3,9 +3,9 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local Player = game.Players.LocalPlayer
 
-local Window = OrionLib:MakeWindow({Name = "Key System | Sunset Hub", HidePremium = false, SaveConfig = true, IntroEnabled = false })
+local Mobile = OrionLib:MakeWindow({Name = "Key System | Sunset Hub", HidePremium = false, SaveConfig = true, IntroEnabled = false })
 
-local Window = OrionLib:MakeWindow({Name = "Sunset Hub | Pet Go!", HidePremium = false, Intro = false , IntroText = "Sunset Hub" , SaveConfig = true, ConfigFolder = "OrionTest"})
+local Mobile = OrionLib:MakeWindow({Name = "Sunset Hub | Pet Go!", HidePremium = false, Intro = false , IntroText = "Sunset Hub" , SaveConfig = true, ConfigFolder = "OrionTest"})
 
 OrionLib:MakeNotification({
 	Name = "Sunset Hub",
@@ -39,7 +39,7 @@ function IncorrectKeyNotification()
       })
 end
 
-local Tab = Window:MakeTab({
+local Tab = Mobile:MakeTab({
 	Name = "Enter The Key",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
@@ -110,13 +110,13 @@ function equipbest()
     end
  
 --Tabs
-local FareTab = Window:MakeTab({
+local FareTab = Mobile:MakeTab({
 	Name = "Auto Farm!",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-local UpgradeTab = Window:MakeTab({
+local UpgradeTab = Mobile:MakeTab({
 	Name = "Auto Upgrade And Buy And EquipBest!",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
